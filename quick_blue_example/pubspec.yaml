@@ -6,7 +6,9 @@ description: Demonstrates how to use the quick_blue plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.13.0 <3.0.0"
+  sdk: '>=3.0.0 <4.0.0'
+
+  # sdk: ">=2.13.0 <3.0.0"
   flutter: ">=2.2.0"
 
 dependencies:
@@ -34,12 +36,8 @@ dev_dependencies:
 dependency_overrides:
   quick_blue_platform_interface:
     path: ../quick_blue_platform_interface
-  quick_blue_windows:
-    path: ../quick_blue_windows
   quick_blue_macos:
     path: ../quick_blue_macos
-  quick_blue_linux:
-    path: ../quick_blue_linux
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
