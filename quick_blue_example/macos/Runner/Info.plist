@@ -22,10 +22,16 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>example</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>example</string>
+	    <string>Need BLE permission</string>
+	    <key>NSBluetoothPeripheralUsageDescription</key>
+	    <string>Need BLE permission</string>
+	    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	    <string>Need Location permission</string>
+	    <key>NSLocationAlwaysUsageDescription</key>
+	    <string>Need Location permission</string>
+	    <key>NSLocationWhenInUseUsageDescription</key>
+	    <string>Need Location permission</string>	
 	<key>NSHumanReadableCopyright</key>
 	<string>$(PRODUCT_COPYRIGHT)</string>
 	<key>NSMainNibFile</key>
