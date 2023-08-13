@@ -1,18 +1,23 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:logger/logger.dart';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:logging/logging.dart';
 import 'package:quick_blue/quick_blue.dart';
+import 'package:quick_blue_example/PeripheralDetailPage.dart';
 
-import 'PeripheralDetailPage.dart';
+// import 'PeripheralDetailPage.dart';
 
 void main() {
-  runApp(MyApp());
+  Logger.level = Level.info;
+  runApp(const MyApp());
 }
 
+final List<BlueScanResult> _scanResults = <BlueScanResult>[];
+
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -23,12 +28,12 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    if (kDebugMode) {
-      QuickBlue.setLogger(Logger('quick_blue_example'));
-    }
     _subscription = QuickBlue.scanResultStream.listen((result) {
       if (!_scanResults.any((r) => r.deviceId == result.deviceId)) {
-        setState(() => _scanResults.add(result));
+        if (result.name.contains('Progressor')) {
+          QuickBlue.stopScan();
+          setState(() => _scanResults.add(result));
+        }
       }
     });
   }
@@ -56,7 +61,7 @@ class _MyAppState extends State<MyApp> {
               },
             ),
             _buildButtons(),
-            Divider(
+            const Divider(
               color: Colors.blue,
             ),
             _buildListView(),
@@ -72,13 +77,13 @@ class _MyAppState extends State<MyApp> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         ElevatedButton(
-          child: Text('startScan'),
+          child: const Text('startScan'),
           onPressed: () {
             QuickBlue.startScan();
           },
         ),
         ElevatedButton(
-          child: Text('stopScan'),
+          child: const Text('stopScan'),
           onPressed: () {
             QuickBlue.stopScan();
           },
@@ -86,8 +91,6 @@ class _MyAppState extends State<MyApp> {
       ],
     );
   }
-
-  var _scanResults = <BlueScanResult>[];
 
   Widget _buildListView() {
     return Expanded(
@@ -105,7 +108,7 @@ class _MyAppState extends State<MyApp> {
                 ));
           },
         ),
-        separatorBuilder: (context, index) => Divider(),
+        separatorBuilder: (context, index) => const Divider(),
         itemCount: _scanResults.length,
       ),
     );
@@ -114,8 +117,8 @@ class _MyAppState extends State<MyApp> {
   Widget _buildPermissionWarning() {
     if (Platform.isAndroid) {
       return Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        child: Text('BLUETOOTH_SCAN/ACCESS_FINE_LOCATION needed'),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        child: const Text('BLUETOOTH_SCAN/ACCESS_FINE_LOCATION needed'),
       );
     }
     return Container();

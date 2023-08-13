@@ -12,7 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.1.4
-  logging: ^1.2.0
+  # logging: ^1.2.0
+  logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:

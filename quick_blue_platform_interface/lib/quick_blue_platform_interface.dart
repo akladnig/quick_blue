@@ -2,7 +2,8 @@ library quick_blue_platform_interface;
 
 import 'dart:typed_data';
 
-import 'package:logging/logging.dart';
+import 'package:logger/logger.dart';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'models.dart';
@@ -33,7 +34,7 @@ abstract class QuickBluePlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  void setLogger(QuickLogger logger);
+  // void setLogger(QuickLogger logger);
 
   Future<bool> isBluetoothAvailable();
 

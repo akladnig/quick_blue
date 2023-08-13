@@ -33,7 +33,7 @@ class QuickBlue {
     _platform = QuickBluePlatform.instance;
   }
 
-  static void setLogger(QuickLogger logger) => _platform.setLogger(logger);
+  // static void setLogger(QuickLogger logger) => _platform.setLogger(logger);
 
   static Future<bool> isBluetoothAvailable() =>
       _platform.isBluetoothAvailable();
