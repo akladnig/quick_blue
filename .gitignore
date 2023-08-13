@@ -1,2 +1,10 @@
 # Flutter/Dart/Pub related
 pubspec.lock
+quick_blue_example/ios/Flutter/Generated 3.xcconfig
+quick_blue_example/ios/Flutter/flutter_export_environment 2.sh
+quick_blue_example/ios/Flutter/flutter_export_environment 3.sh
+quick_blue_example/ios/Flutter/Generated 2.xcconfig
+quick_blue_example/.flutter-plugins 2
+quick_blue_example/.flutter-plugins-dependencies 2
+.DS_Store
+quick_blue_example/lib/data.txt
